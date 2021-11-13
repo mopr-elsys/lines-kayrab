@@ -40,7 +40,7 @@ struct Line {
     }
 
     bool parallel(const Line& other) const {
-        return eq(this->A*other.B, this->B*other.A) && this->C != other.C;
+       return eq(this->A*other.B, this->B*other.A) && this->A*other.C != other.A*this->C;
     }
 
     Line parallel(const Point& p) {
@@ -48,7 +48,7 @@ struct Line {
     }
 
     bool perpendicular(const Line& other) const {
-        return eq(this->A*other.A, this->B*other.B);
+        return eq(this->A*other.A, -(this->B*other.B));
     }
 
     Line perpendicular(const Point& p) {
